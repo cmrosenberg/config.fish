@@ -1,6 +1,10 @@
 set -x EDITOR vim
 set -x LC_CTYPE "en_US.UTF-8"
 
+if test -G ~/.config/fish/config.fish.local
+    source ~/.config/fish/config.fish.local
+end
+
 # fish git prompt
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'

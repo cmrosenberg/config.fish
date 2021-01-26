@@ -1,5 +1,12 @@
 set -x EDITOR vim
+set -x LANG "en_US.UTF-8"
 set -x LC_CTYPE "en_US.UTF-8"
+set -x LC_COLLATE "en_US.UTF-8"
+set -x LC_MESSAGES "en_US.UTF-8"
+set -x LC_MONETARY "en_US.UTF-8"
+set -x LC_NUMERIC "en_US.UTF-8"
+set -x LC_TIME "en_US.UTF-8"
+set -x LC_ALL "en_US.UTF-8"
 
 if test -G ~/.config/fish/config.fish.local
     source ~/.config/fish/config.fish.local
@@ -20,7 +27,12 @@ set __fish_git_prompt_char_upstream_behind ' behind'
 
 set fish_greeting
 
+set -x BIBINPUTS ~/lasting/bibliography
+
 function fish_prompt
+        if set -q VIRTUAL_ENV
+        echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+        end
         set last_status $status
         set_color $fish_color_cwd
         printf '%s' (prompt_pwd)
@@ -28,3 +40,34 @@ function fish_prompt
         printf '%s ' (__fish_git_prompt)
        set_color normal
 end
+
+function br
+    set -l cmd_file (mktemp)
+    if broot --outcmd $cmd_file $argv
+        read --local --null cmd < $cmd_file
+        rm -f $cmd_file
+        eval $cmd
+    else
+        set -l code $status
+        rm -f $cmd_file
+        return $code
+    end
+end
+
+function proto
+        vim $HOME/lasting/write/protocol/(date "+%Y-%m-%d").md
+end
+
+function lastn
+        ls -t | head -n $argv
+end
+
+function yproto
+        vim $HOME/lasting/write/protocol/(date -v-1d "+%Y-%m-%d").md
+end
+
+function stuff
+        vim $HOME/lasting/stuff.txt
+end
+
+[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish

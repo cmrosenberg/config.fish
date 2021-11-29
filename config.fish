@@ -1,4 +1,5 @@
 set -x EDITOR vim
+
 set -x LANG "en_US.UTF-8"
 set -x LC_CTYPE "en_US.UTF-8"
 set -x LC_COLLATE "en_US.UTF-8"
@@ -8,9 +9,6 @@ set -x LC_NUMERIC "en_US.UTF-8"
 set -x LC_TIME "en_US.UTF-8"
 set -x LC_ALL "en_US.UTF-8"
 
-if test -G ~/.config/fish/config.fish.local
-    source ~/.config/fish/config.fish.local
-end
 
 # fish git prompt
 set __fish_git_prompt_showdirtystate 'yes'
@@ -26,8 +24,6 @@ set __fish_git_prompt_char_upstream_ahead ' ahead'
 set __fish_git_prompt_char_upstream_behind ' behind'
 
 set fish_greeting
-
-set -x BIBINPUTS ~/lasting/bibliography
 
 function fish_prompt
         if set -q VIRTUAL_ENV
@@ -54,20 +50,7 @@ function br
     end
 end
 
-function proto
-        vim $HOME/lasting/write/protocol/(date "+%Y-%m-%d").md
-end
 
-function lastn
-        ls -t | head -n $argv
+if test -G ~/.config/fish/config.fish.local
+    source ~/.config/fish/config.fish.local
 end
-
-function yproto
-        vim $HOME/lasting/write/protocol/(date -v-1d "+%Y-%m-%d").md
-end
-
-function stuff
-        vim $HOME/lasting/stuff.txt
-end
-
-[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish

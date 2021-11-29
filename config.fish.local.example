@@ -1,0 +1,30 @@
+set -x MANPAGER "nvim -c 'set ft=man laststatus=0' -"
+source /usr/share/autojump/autojump.fish
+
+function clipclear
+   xsel -bc
+end
+
+function qs
+   vim $HOME/protocol/questions.md
+end
+
+function ta
+   tmux-attach
+end
+
+function gis
+        git status
+end
+
+function proto
+        vim $HOME/protocol/(date "+%Y-%m-%d").md
+end
+
+function lastn
+        ls -t | head -n $argv
+end
+
+function yproto
+        vim $HOME/protocol/(date -v-1d "+%Y-%m-%d").md
+end

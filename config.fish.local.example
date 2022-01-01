@@ -1,6 +1,7 @@
 set -x MANPAGER "nvim -c 'set ft=man laststatus=0' -"
 source /usr/share/autojump/autojump.fish
 
+contains $HOME/.cargo/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.cargo/bin
 function clipclear
    xsel -bc
 end
@@ -21,10 +22,13 @@ function proto
         vim $HOME/protocol/(date "+%Y-%m-%d").md
 end
 
-function lastn
-        ls -t | head -n $argv
+function yproto
+        vim (ls -t $HOME/protocol | head -n 2 | tail -n 1)
 end
 
-function yproto
-        vim $HOME/protocol/(date -v-1d "+%Y-%m-%d").md
+function lproto
+        vim (ls -t $HOME/protocol | head -n 1)
+end
+function lastn
+        ls -t | head -n $argv
 end

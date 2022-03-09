@@ -25,6 +25,18 @@ set __fish_git_prompt_char_upstream_behind ' behind'
 
 set fish_greeting
 
+function jr
+        cd (git rev-parse --show-toplevel)
+end
+
+function gpo
+        git push origin (git branch --show-current)
+end
+
+function gpof
+        git push origin (git branch --show-current) --force-with-lease
+end
+
 function fish_prompt
         if set -q VIRTUAL_ENV
         echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
@@ -49,6 +61,22 @@ function br
         return $code
     end
 end
+
+alias bim=vim
+alias d=docker
+alias eit=exit
+alias exiyt=exit
+alias exti=exit
+alias exyit=exit
+alias g=git
+alias gi=git
+alias gita=git
+alias gs=git status
+alias gti=git
+alias ivm=vim
+alias p=python3
+alias rebott=reboot
+alias v=vim
 
 
 if test -G ~/.config/fish/config.fish.local

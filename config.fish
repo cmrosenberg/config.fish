@@ -29,12 +29,25 @@ function jr
         cd (git rev-parse --show-toplevel)
 end
 
+function gap
+        git add -p
+end
+
+
 function gpo
         git push origin (git branch --show-current)
 end
 
 function gpof
         git push origin (git branch --show-current) --force-with-lease
+end
+
+function gc
+        git commit
+end
+
+function gs
+        git status
 end
 
 function fish_prompt
@@ -62,6 +75,9 @@ function br
     end
 end
 
+
+
+
 alias bim=vim
 alias d=docker
 alias eit=exit
@@ -71,9 +87,9 @@ alias exyit=exit
 alias g=git
 alias gi=git
 alias gita=git
-alias gs=git status
 alias gti=git
 alias ivm=vim
+alias lls=ls
 alias p=python3
 alias rebott=reboot
 alias v=vim

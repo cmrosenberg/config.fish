@@ -92,7 +92,10 @@ alias ivm=vim
 alias lls=ls
 alias p=python3
 alias rebott=reboot
+alias tg=tig
 alias v=vim
+alias sl=ls
+alias pull="git pull"
 
 
 if test -G ~/.config/fish/config.fish.local

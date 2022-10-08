@@ -80,22 +80,25 @@ end
 
 alias bim=vim
 alias d=docker
+alias docker-compose="docker compose"
 alias eit=exit
 alias exiyt=exit
 alias exti=exit
 alias exyit=exit
+alias fetch="git fetch origin"
 alias g=git
 alias gi=git
 alias gita=git
+alias gp="git pull --ff-only"
 alias gti=git
 alias ivm=vim
 alias lls=ls
 alias p=python3
+alias pull="git pull --ff-only"
 alias rebott=reboot
+alias sl=ls
 alias tg=tig
 alias v=vim
-alias sl=ls
-alias pull="git pull"
 
 
 if test -G ~/.config/fish/config.fish.local

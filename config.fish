@@ -90,6 +90,7 @@ alias g=git
 alias gi=git
 alias gita=git
 alias gp="git pull --ff-only"
+alias gt=git
 alias gti=git
 alias ivm=vim
 alias lls=ls

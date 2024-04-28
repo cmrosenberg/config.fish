@@ -47,6 +47,10 @@ function gc
 end
 
 function gs
+        git status --untracked-files=no
+end
+
+function gsu
         git status
 end
 
@@ -75,6 +79,11 @@ function br
     end
 end
 
+function branch
+       git branch
+end
+
+
 
 
 
@@ -85,6 +94,7 @@ alias eit=exit
 alias exiyt=exit
 alias exti=exit
 alias exyit=exit
+alias eixt=exit
 alias fetch="git fetch origin"
 alias g=git
 alias gi=git
@@ -93,6 +103,7 @@ alias gp="git pull --ff-only"
 alias gt=git
 alias gti=git
 alias ivm=vim
+alias vin=vim
 alias lls=ls
 alias p=python3
 alias pull="git pull --ff-only"

@@ -1,5 +1,3 @@
-set -x EDITOR vim
-
 set -x LANG "en_US.UTF-8"
 set -x LC_CTYPE "en_US.UTF-8"
 set -x LC_COLLATE "en_US.UTF-8"
@@ -8,7 +6,6 @@ set -x LC_MONETARY "en_US.UTF-8"
 set -x LC_NUMERIC "en_US.UTF-8"
 set -x LC_TIME "en_US.UTF-8"
 set -x LC_ALL "en_US.UTF-8"
-
 
 # fish git prompt
 set __fish_git_prompt_showdirtystate 'yes'
@@ -29,11 +26,6 @@ function jr
         cd (git rev-parse --show-toplevel)
 end
 
-function gap
-        git add -p
-end
-
-
 function gpo
         git push origin (git branch --show-current)
 end
@@ -42,9 +34,6 @@ function gpof
         git push origin (git branch --show-current) --force-with-lease
 end
 
-function gc
-        git commit
-end
 
 function gs
         git status --untracked-files=no
